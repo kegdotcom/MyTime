@@ -1,30 +1,24 @@
 import { ReactNode } from "react";
 
 interface ButtonProps {
-  type?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "link";
+  classes?: string;
   darkMode?: boolean;
+  onClick: () => void;
   children?: ReactNode;
 }
 
 function Button({
-  type = "primary",
+  classes,
   darkMode = false,
+  onClick,
   children = null,
 }: ButtonProps) {
   return (
     <button
       type="button"
-      className={"btn btn-" + type}
+      className={classes}
       data-bs-theme={darkMode ? "dark" : "light"}
+      onClick={onClick}
     >
       {children}
     </button>
