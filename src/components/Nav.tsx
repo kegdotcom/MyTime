@@ -12,6 +12,7 @@ function Nav({ darkMode = false, onToggleTheme }: NavProps) {
     <nav
       className="navbar navbar-expand-lg bg-body-tertiary"
       data-bs-theme={darkMode ? "dark" : "light"}
+      style={{ height: "10vh" }}
     >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
