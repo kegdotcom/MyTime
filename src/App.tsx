@@ -7,18 +7,18 @@ import Nav from "./components/Nav";
 import { Register, Login } from "./pages/account";
 
 function App() {
-  const [darkTheme, setDarkTheme] = useState(false);
-  const toggleTheme = () => setDarkTheme(!darkTheme);
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleTheme = () => setDarkMode(!darkMode);
 
   return (
     <>
-      <Nav darkMode={darkTheme} onToggleTheme={toggleTheme} />
+      <Nav darkMode={darkMode} onToggleTheme={toggleTheme} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/today" element={<Today />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home darkMode={darkMode} />} />
+        <Route path="/calendar" element={<Calendar darkMode={darkMode} />} />
+        <Route path="/today" element={<Today darkMode={darkMode} />} />
+        <Route path="/login" element={<Login darkMode={darkMode} />} />
+        <Route path="/register" element={<Register darkMode={darkMode} />} />
       </Routes>
     </>
   );
