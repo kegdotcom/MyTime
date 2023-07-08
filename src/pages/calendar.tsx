@@ -1,12 +1,8 @@
 import Viewpane from "../components/Viewpane";
 
-interface CalendarProps {
-  darkMode?: boolean;
-}
-
-function Calendar({ darkMode = false }: CalendarProps) {
+function Calendar() {
   return (
-    <Viewpane darkMode={darkMode}>
+    <Viewpane>
       <h1>Calendar View</h1>
       <p>This is the calendar you have.</p>
     </Viewpane>

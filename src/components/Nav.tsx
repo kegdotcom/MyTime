@@ -1,17 +1,24 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import Icon from "./Icon";
 
-interface NavProps {
-  darkMode?: boolean;
-  onToggleTheme: () => void;
-}
+function Nav() {
+  const page = document.querySelector("html");
 
-function Nav({ darkMode = false, onToggleTheme }: NavProps) {
+  const [theme, setTheme] = useState(
+    page != undefined ? page.getAttribute("data-bs-theme") : "dark"
+  );
+  let otherTheme = theme === "light" ? "dark" : "light";
+
+  const toggleTheme = () => {
+    page?.setAttribute("data-bs-theme", otherTheme);
+    setTheme(otherTheme);
+  };
+
   return (
     <nav
       className="navbar navbar-expand-lg bg-body-tertiary"
-      data-bs-theme={darkMode ? "dark" : "light"}
       style={{ height: "10vh" }}
     >
       <div className="container-fluid">
@@ -71,13 +78,9 @@ function Nav({ darkMode = false, onToggleTheme }: NavProps) {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Button
-                    classes="dropdown-item"
-                    darkMode={darkMode}
-                    onClick={onToggleTheme}
-                  >
-                    <Icon name={darkMode ? "sun" : "moon"} /> Use{" "}
-                    {darkMode ? "Light" : "Dark"} Theme
+                  <Button classes="dropdown-item" onClick={toggleTheme}>
+                    <Icon name={theme === "dark" ? "sun" : "moon"} /> Use{" "}
+                    {theme === "dark" ? "Light" : "Dark"} Theme
                   </Button>
                 </li>
               </ul>

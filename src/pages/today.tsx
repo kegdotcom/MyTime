@@ -1,12 +1,8 @@
 import Viewpane from "../components/Viewpane";
 
-interface TodayProps {
-  darkMode?: boolean;
-}
-
-function Today({ darkMode = false }: TodayProps) {
+function Today() {
   return (
-    <Viewpane darkMode={darkMode}>
+    <Viewpane>
       <h1>Today</h1>
       <p>Here are your tasks for today:</p>
       <p>stuff here i guess</p>

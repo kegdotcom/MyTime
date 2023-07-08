@@ -1,18 +1,18 @@
+import { useState } from "react";
 import Icon from "../components/Icon";
+import Button from "../components/Button";
 import Viewpane from "../components/Viewpane";
 
-interface HomeProps {
-  darkMode?: boolean;
-}
+function Home() {
+  const [num, setNum] = useState(0);
+  const randomizeNum = () => setNum(Math.floor(Math.random() * 10));
 
-function Home({ darkMode = false }: HomeProps) {
   return (
-    <Viewpane darkMode={darkMode}>
+    <Viewpane>
       <h1>Home</h1>
-      <p>
-        Welcome to MyTime!
-        <Icon name="coin" />
-      </p>
+      <p>Welcome to MyTime!</p>
+      <Button onClick={randomizeNum}>Randomize the number</Button>
+      <Icon name={num + "-circle"} />
     </Viewpane>
   );
 }
